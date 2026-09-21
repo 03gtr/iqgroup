@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IQ Group — XPS Executive Card</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#020605;color:#e9eeeb;font-family:Arial,sans-serif}
+body{display:grid;place-items:center;overflow:hidden}
+.stage{width:min(94vw,1100px);height:min(92vh,760px);display:grid;place-items:center;perspective:1800px;position:relative}
+.stage:before{content:"";position:absolute;width:65%;height:28%;bottom:5%;border-radius:50%;background:#000;filter:blur(55px);opacity:.75}
+.card{width:min(900px,88vw);aspect-ratio:1200/720;position:relative;transform-style:preserve-3d;transform:rotateX(7deg) rotateY(-12deg) translateY(0);animation:enter 1.4s cubic-bezier(.2,.75,.2,1) both, float 6s 1.4s ease-in-out infinite;filter:drop-shadow(0 38px 38px rgba(0,0,0,.7));cursor:pointer}
+.card img{width:100%;height:100%;display:block;border-radius:14px;border:1px solid rgba(190,210,200,.28);object-fit:cover}
+.glare{position:absolute;inset:-2%;border-radius:16px;pointer-events:none;background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.08) 43%,rgba(255,255,255,.23) 49%,rgba(255,255,255,.05) 54%,transparent 70%);mix-blend-mode:screen;transform:translateX(-120%);animation:glare 4.8s 1.8s ease-in-out infinite}
+.scan{position:absolute;left:4%;right:4%;height:2px;background:linear-gradient(90deg,transparent,rgba(170,220,200,.0),rgba(205,220,212,.65),rgba(190,30,38,.7),transparent);box-shadow:0 0 14px rgba(160,210,195,.35);top:18%;animation:scan 4s 2s ease-in-out infinite;opacity:.7}
+.hud{position:absolute;inset:0;pointer-events:none;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(220,230,224,.12),inset 0 0 55px rgba(0,0,0,.32)}
+.label{position:absolute;left:4%;bottom:-44px;font-size:11px;letter-spacing:3px;color:#718078;text-transform:uppercase}
+.tap{position:absolute;right:4%;bottom:-44px;font-size:11px;letter-spacing:2px;color:#a4b0aa}
+.card:hover{animation-play-state:paused;transform:rotateX(4deg) rotateY(-6deg) scale(1.015)}
+@keyframes enter{0%{opacity:0;transform:translateZ(-650px) rotateX(25deg) rotateY(-28deg) scale(.72)}65%{opacity:1}100%{transform:rotateX(7deg) rotateY(-12deg) translateY(0) scale(1)}}
+@keyframes float{0%,100%{transform:rotateX(7deg) rotateY(-12deg) translateY(0)}50%{transform:rotateX(5deg) rotateY(-9deg) translateY(-10px)}}
+@keyframes glare{0%,18%{transform:translateX(-125%)}48%,58%{transform:translateX(125%)}100%{transform:translateX(125%)}}
+@keyframes scan{0%,30%{top:14%;opacity:0}42%{opacity:.8}75%{top:86%;opacity:.45}100%{top:86%;opacity:0}}
+@media(max-width:700px){.stage{height:72vh}.card{width:92vw}.label,.tap{bottom:-32px;font-size:8px;letter-spacing:1.5px}}
+@media(prefers-reduced-motion:reduce){.card,.glare,.scan{animation:none}.card{transform:none}}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="card" id="card">
+    <img src="iq-group-card.png" alt="IQ Group executive digital card">
+    <div class="glare"></div><div class="scan"></div><div class="hud"></div>
+    <div class="label">IQ GROUP • XPS DIGITAL ID</div>
+    <div class="tap">CLICK / TAP TO FLIP</div>
+  </div>
+</div>
+<script>
+const card=document.getElementById('card');
+let flipped=false;
+card.addEventListener('click',()=>{flipped=!flipped;card.style.transform=flipped?'rotateX(5deg) rotateY(180deg) scale(1.02)':''});
+</script>
+</body>
+</html>
