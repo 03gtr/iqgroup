@@ -1,13 +1,19 @@
-# IQ Group — XPS-style animated digital card
+# IQ Group — XPS / Atlas-inspired digital experience
 
-بطاقة رقمية مستوحاة من إحساس مشهد بطاقة Atlas في Call of Duty: Advanced Warfare:
-- دخول سينمائي للبطاقة من العمق
-- 3D perspective
-- انعكاس ضوئي متحرك
-- scan line / HUD effect
-- حركة floating
-- responsive للموبايل
-- click/tap interaction
+Mobile-first cinematic experience:
+1. Boot / system initialization.
+2. 3D identity card enters from depth.
+3. TAP TO ACTIVATE.
+4. Identity confirmed + IQ Group.
+5. WhatsApp / Telegram / Instagram / Website.
+6. Explore Our Services transition.
+7. Dedicated services/work page.
+8. Contact CTA and return.
 
-تم بناء الهوية كـ IQ Group أصلية بدون استخدام شعارات أو أصول اللعبة.
-يمكن تعديل الاسم، المنصب، الصورة، البيانات والهوية لاحقاً.
+The visual language is inspired by the cinematic military-sci-fi card presentation requested by the client, while the IQ Group identity and content are original.
+
+Links:
+- WhatsApp: https://wa.me/9647866015099
+- Telegram: https://t.me/iq_group
+- Instagram: https://www.instagram.com/1qgroup
+- Website: https://iq-group.app

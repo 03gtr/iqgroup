@@ -2,43 +2,92 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IQ Group — XPS Executive Card</title>
-<style>
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:#020605;color:#e9eeeb;font-family:Arial,sans-serif}
-body{display:grid;place-items:center;overflow:hidden}
-.stage{width:min(94vw,1100px);height:min(92vh,760px);display:grid;place-items:center;perspective:1800px;position:relative}
-.stage:before{content:"";position:absolute;width:65%;height:28%;bottom:5%;border-radius:50%;background:#000;filter:blur(55px);opacity:.75}
-.card{width:min(900px,88vw);aspect-ratio:1200/720;position:relative;transform-style:preserve-3d;transform:rotateX(7deg) rotateY(-12deg) translateY(0);animation:enter 1.4s cubic-bezier(.2,.75,.2,1) both, float 6s 1.4s ease-in-out infinite;filter:drop-shadow(0 38px 38px rgba(0,0,0,.7));cursor:pointer}
-.card img{width:100%;height:100%;display:block;border-radius:14px;border:1px solid rgba(190,210,200,.28);object-fit:cover}
-.glare{position:absolute;inset:-2%;border-radius:16px;pointer-events:none;background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.08) 43%,rgba(255,255,255,.23) 49%,rgba(255,255,255,.05) 54%,transparent 70%);mix-blend-mode:screen;transform:translateX(-120%);animation:glare 4.8s 1.8s ease-in-out infinite}
-.scan{position:absolute;left:4%;right:4%;height:2px;background:linear-gradient(90deg,transparent,rgba(170,220,200,.0),rgba(205,220,212,.65),rgba(190,30,38,.7),transparent);box-shadow:0 0 14px rgba(160,210,195,.35);top:18%;animation:scan 4s 2s ease-in-out infinite;opacity:.7}
-.hud{position:absolute;inset:0;pointer-events:none;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(220,230,224,.12),inset 0 0 55px rgba(0,0,0,.32)}
-.label{position:absolute;left:4%;bottom:-44px;font-size:11px;letter-spacing:3px;color:#718078;text-transform:uppercase}
-.tap{position:absolute;right:4%;bottom:-44px;font-size:11px;letter-spacing:2px;color:#a4b0aa}
-.card:hover{animation-play-state:paused;transform:rotateX(4deg) rotateY(-6deg) scale(1.015)}
-@keyframes enter{0%{opacity:0;transform:translateZ(-650px) rotateX(25deg) rotateY(-28deg) scale(.72)}65%{opacity:1}100%{transform:rotateX(7deg) rotateY(-12deg) translateY(0) scale(1)}}
-@keyframes float{0%,100%{transform:rotateX(7deg) rotateY(-12deg) translateY(0)}50%{transform:rotateX(5deg) rotateY(-9deg) translateY(-10px)}}
-@keyframes glare{0%,18%{transform:translateX(-125%)}48%,58%{transform:translateX(125%)}100%{transform:translateX(125%)}}
-@keyframes scan{0%,30%{top:14%;opacity:0}42%{opacity:.8}75%{top:86%;opacity:.45}100%{top:86%;opacity:0}}
-@media(max-width:700px){.stage{height:72vh}.card{width:92vw}.label,.tap{bottom:-32px;font-size:8px;letter-spacing:1.5px}}
-@media(prefers-reduced-motion:reduce){.card,.glare,.scan{animation:none}.card{transform:none}}
-</style>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#020609">
+<meta name="description" content="IQ Group — Software, Digital Systems, AI and Business Solutions.">
+<title>IQ Group — XPS</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="stage">
-  <div class="card" id="card">
-    <img src="iq-group-card.png" alt="IQ Group executive digital card">
-    <div class="glare"></div><div class="scan"></div><div class="hud"></div>
-    <div class="label">IQ GROUP • XPS DIGITAL ID</div>
-    <div class="tap">CLICK / TAP TO FLIP</div>
-  </div>
-</div>
-<script>
-const card=document.getElementById('card');
-let flipped=false;
-card.addEventListener('click',()=>{flipped=!flipped;card.style.transform=flipped?'rotateX(5deg) rotateY(180deg) scale(1.02)':''});
-</script>
+<div id="boot" class="boot"><div class="boot-grid"></div><div class="boot-copy"><span>IQ GROUP</span><b>SECURE DIGITAL INTERFACE</b><small>INITIALIZING XPS...</small></div></div>
+
+<main class="app">
+  <section class="scene" id="scene">
+    <div class="scene-bg"></div>
+    <div class="vignette"></div>
+    <div class="scanline"></div>
+    <div class="hud-corners"></div>
+
+    <div class="top-copy left">FROM<br>IRAQ<br>TO A SMARTER<br>TOMORROW</div>
+    <div class="top-copy right">BUILT FOR A<br>BETTER<br>TOMORROW</div>
+
+    <div class="xps-card" id="xpsCard">
+      <div class="card-sheen"></div>
+      <div class="card-inner">
+        <div class="card-logo"><img src="assets/iq-group-mark.jpg" alt="IQ Group"></div>
+        <div class="card-side left-side">PEOPLE<br>IDEAS<br>SOLUTIONS</div>
+        <div class="card-side right-side">TECHNOLOGY<br>BUSINESS<br>SOFTWARE<br>AND MORE</div>
+        <div class="card-bottom left-bottom">MEMBER<br><b>IQ GROUP</b></div>
+        <div class="card-bottom right-bottom">ACCESS<br><b>ALL POSSIBILITIES</b></div>
+      </div>
+    </div>
+
+    <button class="activate" id="activate">TAP TO ACTIVATE <span>⌄</span></button>
+
+    <div class="identity" id="identity">
+      <div class="identity-small">IDENTITY CONFIRMED</div>
+      <div class="identity-title">WELCOME TO</div>
+      <div class="identity-logo">IQ <b>GROUP</b></div>
+      <div class="identity-sub">MORE THAN SOLUTIONS</div>
+    </div>
+
+    <div class="social-row" id="socials">
+      <a href="https://wa.me/9647866015099" target="_blank" class="social wa"><i>◉</i><b>WHATSAPP</b><small>Message IQ Group support</small></a>
+      <a href="https://t.me/iq_group" target="_blank" class="social tg"><i>➤</i><b>TELEGRAM</b><small>iq_group</small></a>
+      <a href="https://www.instagram.com/1qgroup?igsh=eno0cWx0M2U4dTRr" target="_blank" class="social ig"><i>◎</i><b>INSTAGRAM</b><small>@1qgroup</small></a>
+      <a href="https://iq-group.app" target="_blank" class="social web"><i>◎</i><b>OUR WEBSITE</b><small>iq-group.app</small></a>
+    </div>
+
+    <button class="services-cta" id="servicesCta">EXPLORE OUR SERVICES <span>›</span><small>TAP TO CONTINUE</small></button>
+
+    <div class="service-strip">
+      <span>⌘<small>SOFTWARE</small></span><span>▣<small>BUSINESS</small></span><span>✦<small>AI</small></span><span>♧<small>PEOPLE</small></span><span>↗<small>GROWTH</small></span>
+    </div>
+
+    <footer>POWERED BY <b>IQ GROUP</b><br><small>"SAME VISION. A BRIGHTER TOMORROW."</small></footer>
+  </section>
+
+  <section class="services-page" id="servicesPage">
+    <div class="services-head">
+      <span>IQ GROUP / XPS-02</span>
+      <h1>OUR WORK.<br><b>OUR SOLUTIONS.</b></h1>
+      <p>We design, build and operate digital products that turn ideas into working systems.</p>
+    </div>
+    <div class="service-grid">
+      <article><em>01</em><h2>SOFTWARE DEVELOPMENT</h2><p>Custom business software, desktop systems, mobile applications and production-ready platforms.</p></article>
+      <article><em>02</em><h2>BUSINESS SYSTEMS</h2><p>Operational tools, inventory, sales, subscriptions, administration and workflow automation.</p></article>
+      <article><em>03</em><h2>AI SOLUTIONS</h2><p>AI assistants, intelligent workflows, automation and AI-powered product features.</p></article>
+      <article><em>04</em><h2>CLOUD & INTEGRATION</h2><p>Firebase, cloud backends, APIs, secure services, authentication and system integrations.</p></article>
+      <article><em>05</em><h2>IQ SHOP</h2><p>Retail and inventory management with sales, warehouses, pricing and operational controls.</p></article>
+      <article><em>06</em><h2>IQ VETPHARMA</h2><p>Veterinary pharmaceutical management with offline-first workflows and controlled activation.</p></article>
+      <article><em>07</em><h2>IQ DOCTOR</h2><p>Healthcare platform for patients, doctors, secretaries, bookings, subscriptions and AI assistance.</p></article>
+      <article><em>08</em><h2>DIGITAL BRAND EXPERIENCES</h2><p>Landing pages, digital business cards, QR entry experiences and high-impact interactive interfaces.</p></article>
+    </div>
+    <div class="projects">
+      <span>SELECTED IQ GROUP WORK</span>
+      <div><b>IQ SHOP</b><b>IQ VETPHARMA</b><b>IQ DOCTOR</b><b>IQ REST</b><b>IQ GYM</b><b>IQ NEED</b></div>
+    </div>
+    <div class="contact-panel">
+      <span>READY TO BUILD?</span><h2>LET'S TURN THE IDEA<br>INTO A REAL PRODUCT.</h2>
+      <div class="contact-actions">
+        <a href="https://wa.me/9647866015099" target="_blank">WHATSAPP</a>
+        <a href="https://t.me/iq_group" target="_blank">TELEGRAM</a>
+        <a href="https://www.instagram.com/1qgroup?igsh=eno0cWx0M2U4dTRr" target="_blank">INSTAGRAM</a>
+      </div>
+    </div>
+    <div class="back" id="back">← BACK TO IQ GROUP</div>
+  </section>
+</main>
+<script src="script.js"></script>
 </body>
 </html>
