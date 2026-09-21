@@ -1,19 +1,13 @@
-# IQ Group — XPS / Atlas-inspired digital experience
+# IQ Group — XPS Auto Experience
 
-Mobile-first cinematic experience:
-1. Boot / system initialization.
-2. 3D identity card enters from depth.
-3. TAP TO ACTIVATE.
-4. Identity confirmed + IQ Group.
-5. WhatsApp / Telegram / Instagram / Website.
-6. Explore Our Services transition.
-7. Dedicated services/work page.
-8. Contact CTA and return.
+Mobile-first digital business card / smart QR landing experience.
 
-The visual language is inspired by the cinematic military-sci-fi card presentation requested by the client, while the IQ Group identity and content are original.
+Flow:
+1. QR opens the page.
+2. XPS-style IQ Group card appears automatically.
+3. Identity confirmation and contact actions reveal automatically.
+4. Scroll continues into the full IQ Group services / capabilities page.
+5. Language defaults from browser locale (Arabic for `ar-*`, English otherwise) and can be switched manually.
+6. `?lang=ar` or `?lang=en` can force a language.
 
-Links:
-- WhatsApp: https://wa.me/9647866015099
-- Telegram: https://t.me/iq_group
-- Instagram: https://www.instagram.com/1qgroup
-- Website: https://iq-group.app
+No proprietary game assets are included; the visual language is an original sci-fi/corporate treatment inspired by the requested cinematic reference.
