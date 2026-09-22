@@ -10,9 +10,9 @@
 .final{z-index:20;background:#020507;opacity:0;transform:scale(1.02);transition:.65s;overflow:auto}.final.show{opacity:1;transform:none}.final img{display:block;width:100%;max-width:1100px;height:auto;margin:auto}.lang{position:fixed;z-index:100;right:10px;top:10px;display:flex}.lang button{border:1px solid #294044;background:#061012;color:#dce5e4;padding:7px 9px;font-size:8px}.lang button.active{background:#e9efee;color:#071012}@media(max-width:600px){.hud{font-size:7px;padding:14px}.node{min-width:94px;padding:8px;font-size:7px}.n1{left:2%}.n2{right:2%}.n3{left:1%}.n4{right:1%}}
 
 .finalCanvas{position:relative;width:100%;max-width:1100px;margin:0 auto;line-height:0}
-.finalCanvas>img{display:block;width:100%;height:auto}
-.hit{position:absolute;display:block;z-index:5;border:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.hit:focus-visible{outline:2px solid #63e9ff;outline-offset:2px}
+.finalCanvas>img{display:block;width:100%;height:auto;pointer-events:none}
+.hit{position:absolute;display:block;z-index:999;border:0;background:rgba(0,0,0,0.001);cursor:pointer;pointer-events:auto;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.hit:focus-visible{outline:2px solid #63e9ff;outline-offset:2px}.hit:active{background:rgba(99,233,255,.08)}
 /* Coordinates mapped to the 1024×1536 final artwork. */
 .whatsapp{left:9.0%;top:64.0%;width:20.0%;height:8.8%}
 .telegram{left:30.5%;top:64.0%;width:20.0%;height:8.8%}
@@ -29,11 +29,11 @@
 <section class="layer final" id="final">
   <div class="finalCanvas">
     <img src="assets/final-world.png" alt="IQ Group">
-    <a class="hit whatsapp" href="https://wa.me/9647866015099" target="_blank" rel="noopener" aria-label="WhatsApp"></a>
-    <a class="hit telegram" href="https://t.me/iq_group" target="_blank" rel="noopener" aria-label="Telegram"></a>
-    <a class="hit instagram" href="https://www.instagram.com/1qgroup/" target="_blank" rel="noopener" aria-label="Instagram"></a>
-    <a class="hit website" href="https://iq-group.app" target="_blank" rel="noopener" aria-label="IQ Group website"></a>
-    <a class="hit explore" href="https://iq-group.app" target="_blank" rel="noopener" aria-label="Explore IQ Group services"></a>
+    <a class="hit whatsapp" href="https://wa.me/9647866015099" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-url="https://wa.me/9647866015099"></a>
+    <a class="hit telegram" href="https://t.me/iq_group" target="_blank" rel="noopener noreferrer" aria-label="Telegram" data-url="https://t.me/iq_group"></a>
+    <a class="hit instagram" href="https://www.instagram.com/1qgroup/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-url="https://www.instagram.com/1qgroup/"></a>
+    <a class="hit website" href="https://iq-group.app" target="_blank" rel="noopener noreferrer" aria-label="IQ Group website" data-url="https://iq-group.app"></a>
+    <a class="hit explore" href="https://iq-group.app" target="_blank" rel="noopener noreferrer" aria-label="Explore IQ Group services" data-url="https://iq-group.app"></a>
   </div>
 </section>
 </div>
@@ -45,4 +45,14 @@ setTimeout(()=>boot.classList.add("hide"),1500);
 setTimeout(()=>{opening.classList.add("exit");glitch.classList.add("on")},2100);
 setTimeout(()=>mid.classList.add("show"),2470);
 setTimeout(()=>{mid.classList.remove("show");fin.classList.add("show");document.body.style.overflow="auto"},4700);
+</script><script>
+document.querySelectorAll(".hit").forEach(function(el){
+  el.addEventListener("click",function(e){
+    e.stopPropagation();
+    var url=el.getAttribute("data-url");
+    if(!url) return;
+    var w=window.open(url,"_blank","noopener,noreferrer");
+    if(!w) window.location.href=url;
+  },{passive:false});
+});
 </script></body></html>
