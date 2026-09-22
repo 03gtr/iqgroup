@@ -1,2 +1,1 @@
-ONLY THE MIDDLE / FINAL IQ GROUP SCENE.
-The initializing/card/access-granted portion was removed by cropping the supplied composite artwork.
+FULL FLOW: boot 1.5s -> opening/card -> rapid glitch -> animated middle IQ core -> exact final scene. Arabic/English included.
