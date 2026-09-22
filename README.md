@@ -7,4 +7,3 @@ Prototype flow:
 4. World contains identity, contacts, services and products.
 5. Arabic/English auto-detection with manual switch.
 
-Upload the whole folder to GitHub Pages, preserving `assets/opening-scene.png`.
