@@ -1,11 +1,16 @@
-# IQ GROUP XPS — CARD → WORLD
+# IQ GROUP XPS — FINAL SINGLE PAGE
 
-Single entry point: index.html
+One cinematic entry:
+Loading → hand/card → scan → rapid glitch → the supplied IQ Group world artwork.
 
-Timing:
-- 0.00–1.50s: loading
-- 1.50–2.20s: card / hand reveal
-- 2.20–2.70s: rapid glitch transition
-- 2.70s+: IQ Group world
+After the transition, the visitor scrolls ONE PAGE:
+- hero/world artwork
+- what IQ Group does
+- 8 service areas
+- IQ Group products
+- contact CTA
+- footer
 
-Keep assets/iq-world-reference.png beside index.html.
+Files:
+- index.html
+- assets/iq-group-world.png
