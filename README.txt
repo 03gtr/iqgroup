@@ -1,1 +1,0 @@
-FULL FLOW: boot 1.5s -> opening/card -> rapid glitch -> animated middle IQ core -> exact final scene. Arabic/English included.
