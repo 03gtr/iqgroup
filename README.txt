@@ -1,3 +1,2 @@
-IQ GROUP XPS FINAL FIXED
-Opening: Loading -> Card -> Glitch -> EXACT IQ GROUP WORLD IMAGE.
-Do not rename assets/iq-group-world.png.
+ONLY THE MIDDLE / FINAL IQ GROUP SCENE.
+The initializing/card/access-granted portion was removed by cropping the supplied composite artwork.
