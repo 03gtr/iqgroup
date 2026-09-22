@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#020507">
+<title>IQ Group — XPS</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;background:#020507;color:#eef5f4;font-family:Arial,Helvetica,sans-serif}body{overflow:hidden}.app{height:100svh;overflow:hidden;position:relative;background:#020507}.layer{position:absolute;inset:0}
+.boot{z-index:50;display:grid;place-items:center;background:#010304;transition:.35s}.boot.hide{opacity:0;visibility:hidden}.bootbox{text-align:center}.bootlogo{font-size:34px;font-weight:800;letter-spacing:.05em}.bootline{width:175px;height:1px;margin:15px auto;background:linear-gradient(90deg,transparent,#68ecff,transparent)}.boottext{font-size:8px;letter-spacing:.3em;color:#809093}.bar{width:175px;height:2px;background:#112126;margin:12px auto}.bar i{display:block;width:0;height:100%;background:#68ecff;animation:load 1.35s linear forwards}@keyframes load{to{width:100%}}
+.cardscene{z-index:20;background:#020405;transition:.45s}.cardscene.exit{opacity:0;transform:scale(1.08);pointer-events:none}.cardbg{position:absolute;inset:-10%;background:radial-gradient(circle at 50% 43%,#536c721d,transparent 28%),linear-gradient(120deg,#020405,#0a0e0f 50%,#010203)}.rain{position:absolute;inset:0;opacity:.18;background-image:linear-gradient(115deg,transparent 0 47%,#b7d9df 48%,transparent 49%);background-size:7px 32px;animation:rain .22s linear infinite}@keyframes rain{to{background-position:7px 32px}}
+.topline{position:absolute;top:5%;left:7%;right:7%;display:flex;justify-content:space-between;font-size:8px;letter-spacing:.28em;line-height:1.9;color:#cbd5d5}.topline .right{text-align:right}.topline b{display:block;font-weight:500}.hand{position:absolute;left:-14%;bottom:-7%;width:61%;height:49%;border-radius:48% 52% 25% 20%;background:linear-gradient(135deg,#202326,#090b0c 55%,#292d2e);filter:drop-shadow(0 18px 20px #000);transform:rotate(-8deg);box-shadow:inset 0 0 30px #ffffff10}.hand:after{content:"";position:absolute;right:-5%;top:28%;width:43%;height:28%;border-radius:40%;background:linear-gradient(90deg,#2b2e2f,#080a0b);transform:rotate(18deg)}
+.card{position:absolute;width:min(78vw,390px);aspect-ratio:1.62/1;left:50%;top:49%;transform:translate(-50%,-50%) rotate(-7deg) scale(.65);opacity:0;background:linear-gradient(145deg,#11191b,#030506 62%,#171d1e);border:1px solid #dce7e7;border-radius:12px;box-shadow:0 0 0 1px #fff2 inset,0 20px 50px #000,0 0 22px #cde8ed33;animation:cardin 1.15s .45s cubic-bezier(.14,.8,.15,1) forwards}.card:before{content:"";position:absolute;inset:7px;border:1px solid #d5dfdf35;border-radius:8px}.cardgrid{position:absolute;inset:0;background:linear-gradient(#fff1 1px,transparent 1px),linear-gradient(90deg,#fff1 1px,transparent 1px);background-size:18px 18px;opacity:.14}.cardlogo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:28px;white-space:nowrap}.cardlogo b{font-weight:800}.cardlogo span{font-weight:300}.cardleft,.cardright{position:absolute;top:15%;font-size:7px;line-height:1.8;letter-spacing:.2em;color:#b9c3c3}.cardleft{left:7%}.cardright{right:7%;text-align:right}.cardbottom{position:absolute;bottom:9%;left:7%;right:7%;display:flex;justify-content:space-between;font-size:7px;letter-spacing:.17em}.cardbottom small{display:block;color:#7f8b8d;margin-bottom:3px}.gloss{position:absolute;top:-20%;left:-35%;width:28%;height:150%;background:linear-gradient(90deg,transparent,#fff6,transparent);transform:rotate(18deg);animation:gloss 1.2s 1.25s ease-out forwards}@keyframes gloss{to{left:130%}}@keyframes cardin{0%{opacity:0;transform:translate(-42%,-35%) rotate(-16deg) scale(.5)}55%{opacity:1;transform:translate(-50%,-52%) rotate(-2deg) scale(1.02)}100%{opacity:1;transform:translate(-50%,-50%) rotate(-7deg) scale(1)}}
+.scanline{position:absolute;left:12%;right:12%;top:50%;height:1px;background:linear-gradient(90deg,transparent,#6df1ff,transparent);opacity:0;animation:scan 1s 1.55s ease-out forwards}@keyframes scan{0%{opacity:0;top:25%}25%{opacity:1}100%{opacity:0;top:78%}}.cardcaption{position:absolute;left:0;right:0;bottom:10%;text-align:center;font-size:8px;letter-spacing:.35em;color:#c6d0d0;opacity:0;animation:appear .4s 1.6s forwards}.chev{display:block;color:#ff3348;font-size:18px;margin-top:4px}@keyframes appear{to{opacity:1}}
+.glitch{z-index:30;background:#000;opacity:0;pointer-events:none}.glitch.on{animation:glitch .72s steps(1,end) forwards}@keyframes glitch{0%{opacity:0}8%{opacity:1;background:linear-gradient(transparent 44%,#fff 45% 46%,#000 47%)}18%{opacity:1;background:#00eaff;mix-blend-mode:screen;transform:translateX(-8px)}29%{background:#ff1744;transform:translateX(9px)}41%{opacity:1;background:#000;transform:none}58%{background:linear-gradient(90deg,#000 0 23%,#fff 24% 25%,#000 26% 68%,#00eaff 69% 70%,#000 71%)}74%{opacity:.8;background:#000}100%{opacity:0}}
+/* IQ GROUP DATA CORE */
+.world{z-index:5;opacity:0;transform:scale(1.04);transition:opacity .7s,transform 1s;background:
+radial-gradient(circle at 50% 46%,#0b53651f 0 16%,transparent 36%),
+radial-gradient(circle at 50% 50%,#0e2830 0,#031015 35%,#020507 76%);overflow:auto}.world.show{opacity:1;transform:none}
+.world:before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(100,235,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(100,235,255,.025) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(circle,#000,transparent 75%);pointer-events:none}
+.core{position:relative;width:min(900px,100%);min-height:100%;margin:auto;padding:9vh 16px 60px;display:flex;flex-direction:column;align-items:center}.coretop{font-size:8px;letter-spacing:.42em;color:#82999c;text-align:center}.coretop b{display:block;color:#dfe8e7;font-weight:500;margin-top:6px}
+.corestage{position:relative;width:min(620px,94vw);height:min(620px,74vh);min-height:420px;margin:5px auto 0}
+.ring{position:absolute;left:50%;top:50%;width:58%;aspect-ratio:1;border:1px solid #44e7ff55;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 30px #00d9ff15,inset 0 0 30px #00d9ff10}.ring.r2{width:72%;border-style:dashed;opacity:.45;animation:spin 18s linear infinite}.ring.r3{width:88%;opacity:.2;border-color:#e5c85b;animation:spin 28s linear reverse infinite}.ring:after{content:"";position:absolute;inset:-4px;border-radius:50%;border-top:2px solid #62edff;border-right:2px solid transparent;animation:spin 5s linear infinite}@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.corelogo{position:absolute;left:50%;top:50%;width:130px;height:130px;transform:translate(-50%,-50%);display:grid;place-items:center;border:1px solid #76efff88;background:radial-gradient(circle,#12343d,#071318 65%,#03080a);box-shadow:0 0 25px #00d9ff44,0 0 70px #00d9ff16;border-radius:22px;z-index:5}.corelogo .mark{font-size:54px;font-weight:900;letter-spacing:-.12em;line-height:1}.corelogo small{position:absolute;bottom:15px;font-size:6px;letter-spacing:.35em;color:#82d8e5}
+.node{position:absolute;width:116px;min-height:52px;padding:9px 8px;border:1px solid #3cdcf077;background:#061216e8;box-shadow:0 0 16px #00d9ff10;z-index:6;text-align:center;clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px),0 8px)}.node b{display:block;font-size:8px;letter-spacing:.12em}.node small{display:block;font-size:6px;color:#718b8f;margin-top:4px}.n1{left:0;top:16%}.n2{right:0;top:16%}.n3{left:0;top:39%}.n4{right:0;top:39%}.n5{left:0;top:63%}.n6{right:0;top:63%}.n7{left:16%;bottom:1%}.n8{right:16%;bottom:1%}
+.data-line{position:absolute;height:1px;background:linear-gradient(90deg,transparent,#5deaff,transparent);transform-origin:left center;z-index:3;opacity:.85}.l1{width:32%;left:18%;top:31%;transform:rotate(12deg)}.l2{width:32%;right:18%;top:31%;transform:rotate(168deg)}.l3{width:34%;left:17%;top:50%;transform:rotate(0)}.l4{width:34%;right:17%;top:50%;transform:rotate(180deg)}.l5{width:32%;left:18%;top:68%;transform:rotate(-13deg)}.l6{width:32%;right:18%;top:68%;transform:rotate(193deg)}
+.data-line:after{content:"";position:absolute;top:-2px;left:-3px;width:7px;height:5px;border-radius:50%;background:#69eeff;box-shadow:0 0 10px #69eeff;animation:dataflow 1.15s linear infinite}@keyframes dataflow{from{left:0;opacity:0}10%{opacity:1}90%{opacity:1}to{left:100%;opacity:0}}
+.stream{position:absolute;width:2px;height:36px;background:linear-gradient(transparent,#5deaff,transparent);opacity:.6;animation:stream 1.4s linear infinite}.s1{left:31%;top:18%;transform:rotate(30deg)}.s2{right:31%;top:18%;transform:rotate(-30deg)}.s3{left:35%;bottom:12%;transform:rotate(-30deg)}.s4{right:35%;bottom:12%;transform:rotate(30deg)}@keyframes stream{0%{transform:translateY(15px) scaleY(.4);opacity:0}35%{opacity:1}100%{transform:translateY(-30px) scaleY(1);opacity:0}}
+.corestatus{text-align:center;margin-top:-5px;z-index:7}.corestatus b{font-size:9px;letter-spacing:.35em}.corestatus small{display:block;color:#718a8d;font-size:7px;letter-spacing:.22em;margin-top:7px}.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:#39e78c;box-shadow:0 0 13px #39e78c;margin-right:7px}
+.world-info{width:min(900px,100%);padding:20px 16px 70px}.world-info h2{font-size:clamp(38px,10vw,78px);line-height:.95;margin:0}.world-info p{color:#8c9b9d;font-size:12px;line-height:1.7;max-width:680px}.services{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:28px}.service{padding:18px;border:1px solid #15343b;background:#061013}.service b{font-size:9px}.service small{display:block;color:#74898c;font-size:7px;margin-top:8px;line-height:1.5}
+footer{text-align:center;border-top:1px solid #142a2f;padding:30px;color:#728487;font-size:8px;letter-spacing:.3em}footer b{color:#eaf1ef}
+@media(min-width:700px){.corestage{height:620px}.node{width:145px}.corelogo{width:150px;height:150px}.corelogo .mark{font-size:64px}.services{grid-template-columns:repeat(4,1fr)}}@media(max-width:420px){.node{width:94px}.node b{font-size:7px}.node small{font-size:5.5px}.corelogo{width:112px;height:112px}.corelogo .mark{font-size:46px}.corestage{min-height:400px}}
+
+/* FINAL SINGLE-PAGE IQ GROUP WORLD */
+.world{z-index:5;opacity:0;transform:scale(1.025);transition:opacity .65s ease,transform .9s ease;background:#020507;overflow:auto}
+.world.show{opacity:1;transform:none}
+.world-page{min-height:100%;background:
+  radial-gradient(circle at 50% 18%,rgba(22,107,133,.16),transparent 32%),
+  linear-gradient(180deg,#020608 0%,#020507 100%)}
+.world-art-wrap{position:relative;width:100%;max-width:1100px;margin:0 auto;overflow:hidden;background:#020507}
+.world-art{display:block;width:100%;height:auto}
+.world-art-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 48%,transparent 0 34%,rgba(0,0,0,.08) 58%,rgba(0,0,0,.38) 100%);mix-blend-mode:multiply}
+.world-description{width:min(980px,100%);margin:0 auto;padding:72px 20px 40px}
+.eyebrow{font-size:8px;letter-spacing:.38em;color:#638084;text-transform:uppercase}
+.world-description h2{font-size:clamp(42px,10vw,86px);line-height:.92;letter-spacing:-.055em;margin:15px 0 18px}
+.world-description>p{max-width:720px;color:#8b9a9d;font-size:13px;line-height:1.8;margin:0}
+.service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:34px}
+.service-grid article{min-height:145px;padding:18px;background:#061013;border:1px solid #15343b;clip-path:polygon(0 12px,12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px))}
+.service-grid span{display:block;font-size:9px;color:#71878a;font-style:italic}
+.service-grid b{display:block;font-size:12px;margin:18px 0 9px;letter-spacing:.02em}
+.service-grid small{display:block;color:#718387;font-size:8px;line-height:1.6}
+.products-line{border-top:1px solid #173038;margin-top:42px;padding-top:24px}
+.products-line strong{display:block;margin-top:12px;font-size:12px;line-height:2;color:#e6edeb;letter-spacing:.08em}
+.cta{margin-top:48px;padding:26px 0;border-top:1px solid #173038;border-bottom:1px solid #173038;display:flex;justify-content:space-between;align-items:end;gap:25px}
+.cta span{display:block;font-size:9px;letter-spacing:.3em;color:#758a8d}
+.cta b{display:block;font-size:clamp(28px,7vw,58px);margin-top:8px}
+.cta-links{display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end}
+.cta-links a{display:block;padding:12px 13px;border:1px solid #25434a;color:#dce6e5;text-decoration:none;font-size:8px;letter-spacing:.14em;background:#061013}
+.world footer{text-align:center;border-top:1px solid #142a2f;padding:34px 20px 55px;color:#728487;font-size:8px;letter-spacing:.3em}
+.world footer b{color:#eaf1ef}
+@media(max-width:600px){
+  .world-description{padding-top:48px}
+  .service-grid{grid-template-columns:1fr}
+  .service-grid article{min-height:125px}
+  .cta{display:block}
+  .cta-links{justify-content:flex-start;margin-top:24px}
+}
+@media(min-width:1000px){.world-art-wrap{box-shadow:0 0 90px rgba(0,130,160,.12)}}
+
+</style>
+</head>
+<body>
+<div class="app">
+<section class="layer boot" id="boot"><div class="bootbox"><div class="bootlogo">IQ GROUP</div><div class="bootline"></div><div class="boottext">INITIALIZING XPS EXPERIENCE</div><div class="bar"><i></i></div></div></section>
+
+<section class="layer cardscene" id="cardscene">
+<div class="cardbg"></div><div class="rain"></div>
+<div class="topline"><div>FROM<br><b>IRAQ</b><b>TO A SMARTER TOMORROW</b></div><div class="right">BUILT FOR A<br><b>BETTER TOMORROW</b></div></div>
+<div class="hand"></div><div class="card"><div class="cardgrid"></div><div class="cardleft">PEOPLE<br>IDEAS<br>SOLUTIONS</div><div class="cardright">TECHNOLOGY<br>BUSINESS<br>SOFTWARE<br>AND MORE</div><div class="cardlogo"><b>IQ</b> <span>Group</span></div><div class="cardbottom"><div><small>MEMBER</small>IQ GROUP</div><div style="text-align:right"><small>ACCESS</small>ALL POSSIBILITIES</div></div><div class="gloss"></div></div>
+<div class="scanline"></div><div class="cardcaption">IDENTITY DETECTED<div class="chev">⌄</div></div>
+</section>
+
+<div class="layer glitch" id="glitch"></div>
+
+<section class="layer world" id="world">
+  <div class="world-page">
+    <div class="world-art-wrap">
+      <img class="world-art" src="assets/iq-group-world.png" alt="IQ Group">
+      <div class="world-art-glow"></div>
+    </div>
+
+    <div class="world-description">
+      <div class="eyebrow">IQ GROUP / ONE VISION</div>
+      <h2>WE BUILD<br>WHAT THE IDEA NEEDS.</h2>
+      <p>
+        IQ Group builds software, business systems, AI solutions, cloud services,
+        websites, digital experiences and custom products — from the first idea
+        through production and delivery.
+      </p>
+
+      <div class="service-grid">
+        <article><span>01</span><b>SOFTWARE DEVELOPMENT</b><small>Desktop, mobile and web applications.</small></article>
+        <article><span>02</span><b>BUSINESS SYSTEMS</b><small>Sales, inventory, operations and automation.</small></article>
+        <article><span>03</span><b>AI & AUTOMATION</b><small>AI assistants, intelligent workflows and connected processes.</small></article>
+        <article><span>04</span><b>CLOUD & INTEGRATION</b><small>Cloud backends, APIs, databases and integrations.</small></article>
+        <article><span>05</span><b>WEBSITES & DIGITAL</b><small>Websites, QR experiences and interactive interfaces.</small></article>
+        <article><span>06</span><b>E-COMMERCE & RETAIL</b><small>Retail systems, pricing, warehouses and orders.</small></article>
+        <article><span>07</span><b>CUSTOM PRODUCTS</b><small>From a small tool to a complete production platform.</small></article>
+        <article><span>08</span><b>DIGITAL TRANSFORMATION</b><small>Turning business problems and ideas into practical digital systems.</small></article>
+      </div>
+
+      <div class="products-line">
+        <div class="eyebrow">IQ GROUP PRODUCTS</div>
+        <strong>IQ SHOP · IQ VETPHARMA · IQ DOCTOR · IQ REST · IQ GYM · IQ NEED</strong>
+      </div>
+
+      <div class="cta">
+        <div>
+          <span>HAVE AN IDEA?</span>
+          <b>LET'S BUILD IT.</b>
+        </div>
+        <div class="cta-links">
+          <a href="https://wa.me/9647866015099">WHATSAPP</a>
+          <a href="https://t.me/iq_group">TELEGRAM</a>
+          <a href="https://www.instagram.com/1qgroup">INSTAGRAM</a>
+          <a href="https://iq-group.app">IQ-GROUP.APP</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>POWERED BY <b>IQ GROUP</b><br><br>“SAME VISION. A BRIGHTER TOMORROW.”</footer>
+  </div>
+</section>
+</div>
+<script>
+setTimeout(()=>boot.classList.add("hide"),1500);
+setTimeout(()=>glitch.classList.add("on"),2200);
+setTimeout(()=>{cardscene.classList.add("exit");world.classList.add("show")},2700);
+setTimeout(()=>{document.body.style.overflow="auto";world.scrollTop=0},3000);
+</script>
+</body>
+</html>
