@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#020506">
+<title>IQ Group — XPS</title>
+<style>
+:root{--bg:#020506;--panel:#071013;--line:#193238;--text:#edf4f3;--muted:#8b999b;--cyan:#64e9f5;--gold:#e6c85b;--red:#ff3046;--green:#2fe18b}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;background:radial-gradient(circle at 50% 20%,#0a1619 0,#020506 38%,#010304 100%);color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}a{text-decoration:none;color:inherit}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:20;background:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px);background-size:100% 4px;opacity:.18}
+#boot{position:fixed;inset:0;background:#010304;z-index:99;display:grid;place-items:center;transition:.7s}
+#boot.hide{opacity:0;visibility:hidden}
+.bootbox{text-align:center;letter-spacing:.3em}.bootlogo{font-size:38px;font-weight:800;letter-spacing:.04em}.bootline{height:1px;width:180px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);margin:18px auto}.boottext{font-size:9px;color:#7f9092}
+main{width:min(760px,100%);margin:auto}.screen{padding:28px 18px 55px;position:relative;overflow:hidden}.frame{position:absolute;inset:12px;border:1px solid rgba(100,233,245,.12);pointer-events:none}
+.top{display:flex;justify-content:space-between;padding:8px 24px;font-size:9px;letter-spacing:.31em;line-height:1.9;color:#a9b5b6;text-transform:uppercase}.top div{display:flex;flex-direction:column}.top .right{text-align:right}.top b{font-weight:500;color:#e8eeee}
+.stage{height:365px;display:grid;place-items:center;perspective:1000px;position:relative;margin-top:20px}.shadow{position:absolute;width:72%;height:24%;bottom:15%;background:#000;filter:blur(25px);transform:rotate(-3deg)}
+.card{position:relative;width:min(92%,560px);aspect-ratio:1.62/1;border:1px solid rgba(230,238,236,.82);border-radius:20px;background:linear-gradient(145deg,#171c1d,#080c0d 58%,#12191a);box-shadow:0 0 0 1px #ffffff12 inset,0 28px 55px #000,0 0 30px #bcd1d020;transform:rotate(-4deg) translateY(55px) scale(.9);opacity:0;animation:cardIn 1.5s .55s cubic-bezier(.12,.82,.15,1) forwards;overflow:hidden}
+.card:before{content:"";position:absolute;inset:10px;border:1px solid #d6e1df22;border-radius:13px}.grid{position:absolute;inset:0;background:linear-gradient(#fff1 1px,transparent 1px),linear-gradient(90deg,#fff1 1px,transparent 1px);background-size:22px 22px;opacity:.22}
+.card .left,.card .right{position:absolute;top:17%;display:flex;flex-direction:column;gap:7px;font-size:9px;letter-spacing:.25em;color:#b5c0c0}.card .left{left:7%}.card .right{right:7%;text-align:right}
+.brand{position:absolute;inset:0;display:grid;place-items:center}.brandrow{display:flex;align-items:center;gap:8px;font-size:25px}.mark{width:31px;height:31px;position:relative}.mark:before,.mark:after{content:"";position:absolute;background:#fff;clip-path:polygon(0 0,100% 0,63% 50%,100% 100%,0 100%,37% 50%)}.mark:before{inset:0}.mark:after{inset:0 0 0 43%;background:#172022;transform:scale(.7)}
+.bl,.br{position:absolute;bottom:12%;display:flex;flex-direction:column;gap:5px;font-size:9px;letter-spacing:.22em}.bl{left:7%}.br{right:7%;text-align:right}.bl small,.br small{color:#9eaaaa}
+.scan{position:absolute;left:-20%;right:-20%;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.65;animation:scan 2.5s 1.9s infinite}
+@keyframes cardIn{0%{opacity:0;transform:rotate(-13deg) translateY(90px) scale(.82)}55%{opacity:1;transform:rotate(-2deg) translateY(-8px) scale(1.02)}100%{opacity:1;transform:rotate(-4deg) translateY(0) scale(1)}}@keyframes scan{0%{top:-3%}100%{top:103%}}
+.status{text-align:center;margin-top:-3px;opacity:0;animation:fade .8s 2s forwards}.status .red{color:var(--red);font-size:22px;margin-top:3px}.status small{font-size:9px;letter-spacing:.3em;color:#b8c3c2}@keyframes fade{to{opacity:1}}
+.identity{margin:30px 0 0;padding:30px 15px;text-align:center;background:linear-gradient(#071517,#030809);border:1px solid #63eaf52e;clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 18px,100% calc(100% - 18px),calc(100% - 18px) 100%,18px 100%,0 calc(100% - 18px),0 18px);opacity:0;transform:translateY(18px);transition:.8s}.identity.show{opacity:1;transform:none}.eyebrow{font-size:9px;letter-spacing:.34em;color:#a4b1b2}.identity .welcome{margin-top:18px;font-size:15px;letter-spacing:.3em}.identity h1{font-size:clamp(35px,10vw,60px);letter-spacing:.07em;margin:5px 0 8px}.identity p{margin:0;font-size:9px;letter-spacing:.32em;color:#98a6a7}
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:18px;opacity:0;transform:translateY(14px);transition:.7s}.links.show{opacity:1;transform:none}.link{min-height:105px;background:#060d0f;border:1px solid #14282c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center}.link strong{font-size:9px;letter-spacing:.2em}.link small{font-size:9px;color:#829092}.wa{color:#2fe18b}.tg{color:#39b1f2}.ig{color:#e95aa8}.web{color:#e3ecea}
+.explore{display:block;margin:16px 14px 0;padding:15px;border:1px solid #e5c65caa;background:#3b2f08;color:#ead66d;text-align:center;letter-spacing:.2em;font-size:11px;clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,12px 100%,0 50%)}.explore small{display:block;margin-top:6px;color:#b5aa82;font-size:8px;letter-spacing:.28em}
+.values{display:flex;justify-content:space-between;margin-top:35px;padding:0 8px}.values div{text-align:center;color:#d5dedd;font-size:18px}.values small{display:block;margin-top:7px;font-size:7px;letter-spacing:.16em;color:#7e8d8e}.powered{text-align:center;margin-top:30px;font-size:9px;letter-spacing:.3em;color:#728082;line-height:2}.powered b{color:#edf3f2}.powered small{display:block;font-size:7px}
+.work{border-top:1px solid #11262a;padding:80px 18px 25px}.code{font-size:8px;letter-spacing:.35em;color:#5d777a;margin-bottom:20px}.work h2{font-size:clamp(30px,8vw,52px);line-height:1.05;margin:0;letter-spacing:-.04em}.work h2 strong{font-weight:800}.workintro{font-size:13px;line-height:1.75;color:#8d9b9d;margin:20px 0 30px}
+.services{display:grid;gap:12px}.service{padding:27px 23px;min-height:160px;background:linear-gradient(145deg,#071315,#030708);border:1px solid #12292d;clip-path:polygon(0 17px,17px 0,calc(100% - 17px) 0,100% 17px,100% calc(100% - 17px),calc(100% - 17px) 100%,17px 100%,0 calc(100% - 17px))}.num{font-style:italic;font-size:12px}.service h3{font-size:20px;line-height:1.2;margin:22px 0 13px}.service p{font-size:11px;line-height:1.7;color:#89989a;margin:0}
+.products{border-top:1px solid #13282c;margin-top:70px;padding-top:30px}.products h2{font-size:29px;margin:0 0 20px}.productgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}.product{padding:20px 14px;min-height:90px;background:#071012;border:1px solid #122629}.product b{display:block;font-size:13px}.product small{font-size:8px;color:#748486}
+.cta{padding:70px 0 35px}.cta h2{font-size:clamp(42px,11vw,75px);margin:10px 0;letter-spacing:-.05em}.cta p{font-size:14px;line-height:1.7;color:#95a3a4}.cta a{display:inline-block;margin:12px 20px 0 0;font-size:12px;text-decoration:underline;text-underline-offset:5px}
+footer{border-top:1px solid #15272a;padding:25px 18px 38px;text-align:center;color:#748183;font-size:9px;letter-spacing:.25em}footer b{color:#edf3f2}footer small{display:block;margin-top:10px;font-size:7px}
+.lang{position:fixed;right:14px;top:14px;z-index:30;display:flex;border:1px solid #23373a}.lang button{border:0;background:#071012;color:#d5dfde;padding:7px 9px;font-size:9px}.lang button.active{background:#e7efed;color:#071012}
+[dir=rtl] .top .right{text-align:left}[dir=rtl] .card .left{left:auto;right:7%;text-align:right}[dir=rtl] .card .right{right:auto;left:7%;text-align:left}[dir=rtl] .bl{left:auto;right:7%}[dir=rtl] .br{right:auto;left:7%;text-align:left}[dir=rtl] .cta a{margin:12px 0 0 20px}
+@media(min-width:600px){.screen{padding-left:30px;padding-right:30px}.stage{height:460px}.links{grid-template-columns:repeat(4,1fr)}.service{min-height:200px}.services{grid-template-columns:repeat(2,1fr)}.productgrid{grid-template-columns:repeat(3,1fr)}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="boot"><div class="bootbox"><div class="bootlogo">IQ GROUP</div><div class="bootline"></div><div class="boottext">SECURE DIGITAL IDENTITY / XPS</div></div></div>
+<div class="lang"><button id="en">EN</button><button id="ar">ع</button></div>
+
+<main>
+<section class="screen">
+<div class="frame"></div>
+<div class="top"><div><span data="from">FROM</span><b>IRAQ</b><b>TO A SMARTER</b><b>TOMORROW</b></div><div class="right"><span data="built">BUILT FOR A</span><b>BETTER</b><b>TOMORROW</b></div></div>
+
+<div class="stage"><div class="shadow"></div><div class="card">
+<div class="grid"></div><div class="brand"><div class="brandrow"><span class="mark"></span><span><b>IQ</b> Group</span></div></div>
+<div class="left"><span>PEOPLE</span><span>IDEAS</span><span>SOLUTIONS</span></div><div class="right"><span>TECHNOLOGY</span><span>BUSINESS</span><span>SOFTWARE</span><span>AND MORE</span></div>
+<div class="bl"><small>MEMBER</small><b>IQ GROUP</b></div><div class="br"><small>ACCESS</small><b>ALL POSSIBILITIES</b></div><div class="scan"></div>
+</div></div>
+
+<div class="status"><small data="scan">IDENTITY SCAN / AUTO ACTIVATION</small><div class="red">⌄</div></div>
+
+<div class="identity" id="identity"><div class="eyebrow" data="confirmed">IDENTITY CONFIRMED</div><div class="welcome" data="welcome">WELCOME TO</div><h1>IQ GROUP</h1><p data="more">MORE THAN SOLUTIONS.</p></div>
+
+<div class="links" id="links">
+<a class="link" href="https://wa.me/9647866015099"><strong class="wa">WHATSAPP</strong><small data="wa">Message IQ Group</small></a>
+<a class="link" href="https://t.me/iq_group"><strong class="tg">TELEGRAM</strong><small>@iq_group</small></a>
+<a class="link" href="https://www.instagram.com/1qgroup"><strong class="ig">INSTAGRAM</strong><small>@1qgroup</small></a>
+<a class="link" href="https://iq-group.app"><strong class="web">WEBSITE</strong><small>iq-group.app</small></a>
+</div>
+
+<a class="explore" href="#work"><span data="explore">EXPLORE OUR SERVICES</span><small data="continue">SCROLL TO CONTINUE</small></a>
+<div class="values"><div>⌘<small>SOFTWARE</small></div><div>▣<small>BUSINESS</small></div><div>✦<small>AI</small></div><div>♧<small>PEOPLE</small></div><div>↗<small>GROWTH</small></div></div>
+<div class="powered">POWERED BY <b>IQ GROUP</b><small>“SAME VISION. A BRIGHTER TOMORROW.”</small></div>
+</section>
+
+<section class="work" id="work">
+<div class="code">XPS / 02</div><div class="eyebrow" data="what">WHAT WE DO</div>
+<h2 data="title">WE BUILD<br><strong>WHAT THE IDEA NEEDS.</strong></h2>
+<p class="workintro" data="intro">Software, business systems, AI, websites, automation and digital experiences — designed as real products, not just concepts.</p>
+<div class="services">
+<article class="service"><span class="num">01</span><h3 data="s1t">SOFTWARE DEVELOPMENT</h3><p data="s1d">Desktop, mobile and web applications built around the actual workflow.</p></article>
+<article class="service"><span class="num">02</span><h3 data="s2t">BUSINESS SYSTEMS</h3><p data="s2d">Sales, inventory, subscriptions, administration, operations and custom workflows.</p></article>
+<article class="service"><span class="num">03</span><h3 data="s3t">AI & AUTOMATION</h3><p data="s3d">AI assistants, intelligent features, automation and connected business processes.</p></article>
+<article class="service"><span class="num">04</span><h3 data="s4t">CLOUD & INTEGRATION</h3><p data="s4d">Cloud backends, APIs, authentication, databases and third-party integrations.</p></article>
+<article class="service"><span class="num">05</span><h3 data="s5t">WEBSITES & DIGITAL EXPERIENCES</h3><p data="s5d">High-impact websites, landing pages, QR experiences and digital interfaces.</p></article>
+<article class="service"><span class="num">06</span><h3 data="s6t">E-COMMERCE & RETAIL</h3><p data="s6d">Retail platforms, products, pricing, warehouses, orders and customer experiences.</p></article>
+<article class="service"><span class="num">07</span><h3 data="s7t">CUSTOM PRODUCTS</h3><p data="s7d">From a small tool to a complete production platform — architecture, build and delivery.</p></article>
+<article class="service"><span class="num">08</span><h3 data="s8t">CONSULTING & DIGITAL TRANSFORMATION</h3><p data="s8d">We turn business problems and ideas into practical digital systems.</p></article>
+</div>
+<div class="products"><div class="code">IQ GROUP / PRODUCTS</div><h2 data="products">PRODUCTS WE BUILD</h2><div class="productgrid">
+<div class="product"><b>IQ SHOP</b><small>Retail & inventory</small></div><div class="product"><b>IQ VETPHARMA</b><small>Veterinary pharmacy</small></div><div class="product"><b>IQ DOCTOR</b><small>Healthcare platform</small></div><div class="product"><b>IQ REST</b><small>Restaurant systems</small></div><div class="product"><b>IQ GYM</b><small>Gym management</small></div><div class="product"><b>IQ NEED</b><small>Local shopping & logistics</small></div>
+</div></div>
+<div class="cta"><div class="eyebrow" data="idea">HAVE AN IDEA?</div><h2 data="lets">LET'S BUILD IT.</h2><p data="ctap">Tell us what you need. We design the system, build it and turn it into something you can actually use.</p><a href="https://wa.me/9647866015099" data="talk">TALK TO IQ GROUP ↗</a><a href="https://iq-group.app">VISIT IQ-GROUP.APP ↗</a></div>
+</section>
+<footer>POWERED BY <b>IQ GROUP</b><small>“SAME VISION. A BRIGHTER TOMORROW.”</small></footer>
+</main>
+
+<script>
+const T={
+en:{from:"FROM",built:"BUILT FOR A",scan:"IDENTITY SCAN / AUTO ACTIVATION",confirmed:"IDENTITY CONFIRMED",welcome:"WELCOME TO",more:"MORE THAN SOLUTIONS.",wa:"Message IQ Group",explore:"EXPLORE OUR SERVICES",continue:"SCROLL TO CONTINUE",what:"WHAT WE DO",title:"WE BUILD<br><strong>WHAT THE IDEA NEEDS.</strong>",intro:"Software, business systems, AI, websites, automation and digital experiences — designed as real products, not just concepts.",s1t:"SOFTWARE DEVELOPMENT",s1d:"Desktop, mobile and web applications built around the actual workflow.",s2t:"BUSINESS SYSTEMS",s2d:"Sales, inventory, subscriptions, administration, operations and custom workflows.",s3t:"AI & AUTOMATION",s3d:"AI assistants, intelligent features, automation and connected business processes.",s4t:"CLOUD & INTEGRATION",s4d:"Cloud backends, APIs, authentication, databases and third-party integrations.",s5t:"WEBSITES & DIGITAL EXPERIENCES",s5d:"High-impact websites, landing pages, QR experiences and digital interfaces.",s6t:"E-COMMERCE & RETAIL",s6d:"Retail platforms, products, pricing, warehouses, orders and customer experiences.",s7t:"CUSTOM PRODUCTS",s7d:"From a small tool to a complete production platform — architecture, build and delivery.",s8t:"CONSULTING & DIGITAL TRANSFORMATION",s8d:"We turn business problems and ideas into practical digital systems.",products:"PRODUCTS WE BUILD",idea:"HAVE AN IDEA?",lets:"LET'S BUILD IT.",ctap:"Tell us what you need. We design the system, build it and turn it into something you can actually use.",talk:"TALK TO IQ GROUP ↗"},
+ar:{from:"من",built:"مصمم من أجل",scan:"فحص الهوية / تفعيل تلقائي",confirmed:"تم تأكيد الهوية",welcome:"أهلاً بك في",more:"أكثر من مجرد حلول.",wa:"تواصل مع IQ Group",explore:"استكشف خدماتنا",continue:"اسحب للاستمرار",what:"ماذا نقدم",title:"نبني<br><strong>ما تحتاجه فكرتك.</strong>",intro:"برمجيات، أنظمة أعمال، ذكاء اصطناعي، مواقع، أتمتة وتجارب رقمية — منتجات حقيقية مصممة للاستخدام الفعلي، وليست مجرد أفكار.",s1t:"تطوير البرمجيات",s1d:"تطبيقات سطح مكتب وموبايل وويب مبنية حول طريقة عملك الفعلية.",s2t:"أنظمة الأعمال",s2d:"المبيعات والمخزون والاشتراكات والإدارة والعمليات وسير العمل المخصص.",s3t:"الذكاء الاصطناعي والأتمتة",s3d:"مساعدات ذكية، خصائص AI، أتمتة وربط العمليات التجارية.",s4t:"السحابة والتكامل",s4d:"خدمات سحابية وواجهات API وقواعد بيانات وتوثيق وربط الأنظمة الخارجية.",s5t:"المواقع والتجارب الرقمية",s5d:"مواقع وصفحات هبوط وتجارب QR وواجهات رقمية عالية التأثير.",s6t:"التجارة الإلكترونية والريتيل",s6d:"منصات البيع والمنتجات والأسعار والمخازن والطلبات وتجربة العملاء.",s7t:"منتجات مخصصة",s7d:"من أداة صغيرة إلى منصة إنتاج متكاملة — تحليل وهندسة وبناء وتسليم.",s8t:"الاستشارات والتحول الرقمي",s8d:"نحوّل مشاكل الأعمال والأفكار إلى أنظمة رقمية عملية.",products:"المنتجات التي نبنيها",idea:"عندك فكرة؟",lets:"خلينا نبنيها.",ctap:"احچي لنا شتحتاج. نصمم النظام ونبنيه ونحوّله إلى شيء فعلي تقدر تستخدمه.",talk:"تواصل مع IQ Group ↗"}
+};
+function lang(l){document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr";document.querySelectorAll("[data]").forEach(e=>{let k=e.getAttribute("data");if(T[l][k]!==undefined)e.innerHTML=T[l][k]});document.getElementById("en").classList.toggle("active",l==="en");document.getElementById("ar").classList.toggle("active",l==="ar");localStorage.setItem("iq-lang",l)}
+let l=new URLSearchParams(location.search).get("lang")||localStorage.getItem("iq-lang")||((navigator.language||"en").toLowerCase().startsWith("ar")?"ar":"en");lang(l);
+document.getElementById("en").onclick=()=>lang("en");document.getElementById("ar").onclick=()=>lang("ar");
+window.addEventListener("load",()=>{setTimeout(()=>document.getElementById("boot").classList.add("hide"),850);setTimeout(()=>document.getElementById("identity").classList.add("show"),2200);setTimeout(()=>document.getElementById("links").classList.add("show"),2550)});
+</script>
+</body>
+</html>
