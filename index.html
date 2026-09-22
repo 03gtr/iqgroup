@@ -10,8 +10,8 @@
 .final{z-index:60;pointer-events:auto;background:#020507;opacity:0;transform:scale(1.02);transition:.65s;overflow:auto}.final.show{opacity:1;transform:none}.final img{display:block;width:100%;max-width:1100px;height:auto;margin:auto}.lang{position:fixed;z-index:100;right:10px;top:10px;display:flex}.lang button{border:1px solid #294044;background:#061012;color:#dce5e4;padding:7px 9px;font-size:8px}.lang button.active{background:#e9efee;color:#071012}@media(max-width:600px){.hud{font-size:7px;padding:14px}.node{min-width:94px;padding:8px;font-size:7px}.n1{left:2%}.n2{right:2%}.n3{left:1%}.n4{right:1%}}
 
 .finalCanvas{position:relative;width:100%;max-width:1100px;margin:0 auto;line-height:0;pointer-events:auto}
-.finalCanvas>img{display:block;width:100%;height:auto}
-.hit{position:absolute;display:block;z-index:999;border:0;background:rgba(0,0,0,0.001);cursor:pointer;pointer-events:auto;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.finalCanvas>img{display:block;width:100%;height:auto;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.hit{position:absolute;display:block;z-index:999;border:0;background:transparent;cursor:pointer;pointer-events:auto;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .hit:focus-visible{outline:2px solid #63e9ff;outline-offset:2px}.hit:active{background:rgba(99,233,255,.08)}
 </style></head><body>
 <div class="stage">
@@ -22,14 +22,12 @@
 <section class="layer mid" id="mid"><div class="grid"></div><div class="title"><div class="k">XPS / IQ GROUP</div><h1>IQ GROUP</h1><p id="mp">SOFTWARE · BUSINESS · AI · DIGITAL SOLUTIONS</p></div><div class="core"><div class="logo">IQ<span>↗</span></div></div><div class="node n1">SOFTWARE<small>PRODUCT ENGINEERING</small></div><div class="node n2">BUSINESS<small>SYSTEMS & AUTOMATION</small></div><div class="node n3">AI & CLOUD<small>INTELLIGENT INFRASTRUCTURE</small></div><div class="node n4">DIGITAL<small>WEB & EXPERIENCES</small></div><div class="node n5">DATA FLOW ACTIVE<small>IQ GROUP SYSTEM CORE</small></div><div class="line l1"></div><div class="line l2"></div><div class="line l3"></div><div class="line l4"></div><div class="status" id="status">CONNECTING IQ GROUP SYSTEMS · ACCESS GRANTED</div></section>
 <section class="layer final" id="final">
   <div class="finalCanvas">
-    <img src="assets/final-world.png" alt="IQ Group" usemap="#iqgroup-map" id="finalImage">
-    <map name="iqgroup-map">
-      <area shape="rect" coords="104,989,298,1144" href="https://wa.me/9647866015099" target="_blank" rel="noopener noreferrer" alt="WhatsApp">
-      <area shape="rect" coords="312,989,507,1144" href="https://t.me/iq_group" target="_blank" rel="noopener noreferrer" alt="Telegram">
-      <area shape="rect" coords="520,989,716,1144" href="https://www.instagram.com/1qgroup/" target="_blank" rel="noopener noreferrer" alt="Instagram">
-      <area shape="rect" coords="730,989,921,1144" href="https://iq-group.app" target="_blank" rel="noopener noreferrer" alt="Website">
-      <area shape="rect" coords="271,1174,750,1248" href="https://iq-group.app" target="_blank" rel="noopener noreferrer" alt="Explore services">
-    </map>
+    <img src="assets/final-world.png" alt="IQ Group" id="finalImage" draggable="false">
+    <a class="hit" style="left:10.16%;top:64.39%;width:18.95%;height:10.09%" href="https://wa.me/9647866015099" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"></a>
+    <a class="hit" style="left:30.47%;top:64.39%;width:19.04%;height:10.09%" href="https://t.me/iq_group" target="_blank" rel="noopener noreferrer" aria-label="Telegram"></a>
+    <a class="hit" style="left:50.78%;top:64.39%;width:19.14%;height:10.09%" href="https://www.instagram.com/1qgroup/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"></a>
+    <a class="hit" style="left:71.29%;top:64.39%;width:18.65%;height:10.09%" href="https://iq-group.app" target="_blank" rel="noopener noreferrer" aria-label="Website"></a>
+    <a class="hit" style="left:26.46%;top:76.43%;width:46.78%;height:4.82%" href="https://iq-group.app" target="_blank" rel="noopener noreferrer" aria-label="Explore services"></a>
   </div>
 </section>
 </div>
